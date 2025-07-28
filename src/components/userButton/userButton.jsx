@@ -1,9 +1,32 @@
-import './userButton.css'
+import { useState } from 'react';
+import './userButton.css';
 
 const UserButton = () => {
-  return (
-    <div className='userButton'>UserButton</div>
-  )
-}
+  const [open, setOpen] = useState(false);
 
-export default UserButton
+  // TEMP
+  const currentUser = true;
+
+  return currentUser ? (
+    <div className='userButton'>
+      <img src='/general/noAvatar.png' alt='avatar' />
+      <img
+        onClick={() => setOpen((prev) => !prev)}
+        src='/general/arrow.svg'
+        alt='arrow'
+        className='arrow'
+      />
+      {open && <div className='userOptions'>
+        <div className='userOption'>Profile</div>
+        <div className='userOption'>Settings</div>
+        <div className='userOption'>Logout</div>
+      </div>}
+    </div>
+  ) : (
+    <a href='/' className='loginLink'>
+      Login / Sign up
+    </a>
+  );
+};
+
+export default UserButton;
