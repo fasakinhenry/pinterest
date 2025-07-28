@@ -1,4 +1,5 @@
 import './topBar.css';
+import UserButton from '../userButton/userButton';
 
 const TopBar = () => {
   return (
@@ -9,7 +10,7 @@ const TopBar = () => {
         <input type='text' placeholder='search' />
       </div>
       {/* User */}
-      <div className=''></div>
+      <UserButton />
     </div>
   );
 };
