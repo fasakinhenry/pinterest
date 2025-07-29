@@ -1,9 +1,7 @@
-import './authPage.css'
+import './authPage.css';
 
 const AuthPage = () => {
-  return (
-    <div className='authPage'>AuthPage</div>
-  )
-}
+  return <div className='authPage'>AuthPage</div>;
+};
 
-export default AuthPage
+export default AuthPage;
