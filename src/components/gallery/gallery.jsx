@@ -1,3 +1,4 @@
+import GalleryItem from '../galleryItem/galleryItem';
 import './gallery.css';
 
 // TEMPORARY
@@ -170,13 +171,7 @@ const Gallery = () => {
   return (
     <div className='gallery'>
       {items.map((item) => (
-        <div key={item.id} className='gallery-item'>
-          <img
-            src={item.media}
-            alt={`Pin ${item.id}`}
-            style={{ width: item.width, height: item.height }}
-          />
-        </div>
+        <GalleryItem key={item.id} item={item} />
       ))}
     </div>
   );

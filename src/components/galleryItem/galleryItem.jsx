@@ -1,7 +1,11 @@
 import './galleryItem.css';
 
-const GalleryItem = () => {
-  return <div className='galleryItem'>GalleryItem</div>;
+const GalleryItem = ({ item }) => {
+  return (
+    <div className='galleryItem'>
+      <img src={item.media} alt={'item' + item.id} />
+    </div>
+  );
 };
 
 export default GalleryItem;
