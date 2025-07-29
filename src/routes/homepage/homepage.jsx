@@ -1,9 +1,8 @@
-import './homepage.css'
+import './homepage.css';
+import Gallery from '../../components/gallery/gallery';
 
 const Homepage = () => {
-  return (
-    <div className='homepage'>Homepage</div>
-  )
-}
+  return <Gallery />;
+};
 
-export default Homepage
+export default Homepage;
