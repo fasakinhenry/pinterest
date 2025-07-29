@@ -1,5 +1,6 @@
 import { Link } from 'react-router';
 import './galleryItem.css';
+import { Image } from '@imagekit/react';
 
 const GalleryItem = ({ item }) => {
   return (
@@ -7,7 +8,7 @@ const GalleryItem = ({ item }) => {
       className='galleryItem'
       style={{ gridRowEnd: `span ${Math.ceil(item.height / 100)}` }}
     >
-      <img src={item.media} alt={'item' + item.id} />
+      <Image urlEndpoint={urlEndpoint} src={item.media} />
       <Link to={`/pin/${item.id}`} className='overlay' />
       <button className='saveButton'>Save</button>
       <div className='overlayIcons'>
