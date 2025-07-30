@@ -1,8 +1,9 @@
 import { Link } from 'react-router';
 import './galleryItem.css';
-import { Image } from '@imagekit/react';
+import Image from '../image/image';
 
 const GalleryItem = ({ item }) => {
+  const optimizedHeight = (372 * item.height) / item.width;
   return (
     <div
       className='galleryItem'
@@ -10,10 +11,10 @@ const GalleryItem = ({ item }) => {
     >
       {/* <img src={item.media} alt={"item" + item.id} /> */}
       <Image
-        urlEndpoint={import.meta.env.VITE_URL_IK_ENDPOINT}
         src={item.media}
         alt={'pin' + item.id}
-        transformation={[{ width: 500, height: 500 }]}
+        w={372}
+        h={optimizedHeight}
       />
       <Link to={`/pin/${item.id}`} className='overlay' />
       <button className='saveButton'>Save</button>
