@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './userButton.css';
+import IKImage from '../image/image';
 
 const UserButton = () => {
   const [open, setOpen] = useState(false);
@@ -9,10 +10,10 @@ const UserButton = () => {
 
   return currentUser ? (
     <div className='userButton'>
-      <img src='/general/noAvatar.png' alt='avatar' />
-      <img
+      <IKImage path='/general/noAvatar.png' alt='avatar' />
+      <IKImage
         onClick={() => setOpen((prev) => !prev)}
-        src='/general/arrow.svg'
+        path='/general/arrow.svg'
         alt='arrow'
         className='arrow'
       />
