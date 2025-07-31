@@ -20,10 +20,10 @@ const GalleryItem = ({ item }) => {
       <button className='saveButton'>Save</button>
       <div className='overlayIcons'>
         <button>
-          <img src='/general/share.svg' alt='share icon' />
+          <IKImage path='/general/share.svg' alt='share icon' />
         </button>
         <button>
-          <img src='/general/more.svg' alt='share icon' />
+          <IKImage path='/general/more.svg' alt='share icon' />
         </button>
       </div>
     </div>
