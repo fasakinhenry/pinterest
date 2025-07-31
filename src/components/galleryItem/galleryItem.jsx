@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 import './galleryItem.css';
-import Image from '../image/image';
+import IKImage from '../image/image';
 
 const GalleryItem = ({ item }) => {
   const optimizedHeight = (372 * item.height) / item.width;
@@ -10,8 +10,8 @@ const GalleryItem = ({ item }) => {
       style={{ gridRowEnd: `span ${Math.ceil(item.height / 100)}` }}
     >
       {/* <img src={item.media} alt={"item" + item.id} /> */}
-      <Image
-        src={item.media}
+      <IKImage
+        path={item.media}
         alt={'pin' + item.id}
         w={372}
         h={optimizedHeight}

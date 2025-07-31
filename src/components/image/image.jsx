@@ -1,6 +1,6 @@
 import { Image } from '@imagekit/react';
 
-const Image = ({ path, alt, className, w, h }) => {
+const IKImage = ({ path, alt, className, w, h }) => {
   return (
     <Image
       urlEndpoint={import.meta.env.VITE_URL_IK_ENDPOINT}
@@ -14,4 +14,4 @@ const Image = ({ path, alt, className, w, h }) => {
   );
 };
 
-export default Image;
+export default IKImage;
