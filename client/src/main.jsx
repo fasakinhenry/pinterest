@@ -8,7 +8,7 @@ import PostPage from './routes/postPage/postPage';
 import AuthPage from './routes/authPage/authPage';
 import ProfilePage from './routes/profilePage/profilePage';
 import SearchPage from './routes/searchPage/searchPage';
-import MainLayout from './layouts/MainLayout';
+import MainLayout from './layouts/mainLayout';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

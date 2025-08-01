@@ -50,3 +50,9 @@
 .postUser span {
   font-size: 14px;
 }
+
+@media (max-width: 751px) {
+  .postContainer {
+    flex-direction: column;
+  }
+}
