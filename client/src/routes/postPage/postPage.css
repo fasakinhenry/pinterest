@@ -51,6 +51,13 @@
   font-size: 14px;
 }
 
+@media (max-width: 1127px) {
+  .postContainer {
+    width: 100%;
+    margin-right: 16px;
+  }
+}
+
 @media (max-width: 751px) {
   .postContainer {
     flex-direction: column;

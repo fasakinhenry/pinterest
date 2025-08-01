@@ -9,7 +9,6 @@ const IKImage = ({ path, alt, className, w, h }) => {
       transformation={[{ width: w, height: h }]}
       loading='lazy'
       className={className}
-      lqip={{ active: true, quality: 20 }}
     />
   );
 };
