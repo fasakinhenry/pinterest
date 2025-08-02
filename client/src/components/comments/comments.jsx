@@ -1,7 +1,7 @@
 import './comments.css';
 import IKImage from './../image/image';
 import { useState } from 'react';
-import EmojiPicker from 'emoji-picker-react'
+import EmojiPicker from 'emoji-picker-react';
 
 const Comments = () => {
   const [open, setOpen] = useState(false);
