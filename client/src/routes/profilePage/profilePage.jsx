@@ -1,7 +1,9 @@
 import './profilePage.css';
 import IKImage from './../../components/image/image';
+import { useState } from 'react';
 
 const ProfilePage = () => {
+  const [type, setType] = useState('saved');
   return (
     <div className='profilePage'>
       <IKImage
@@ -22,8 +24,18 @@ const ProfilePage = () => {
         <IKImage path='general/more.svg' alt='More Icon' />
       </div>
       <div className='profileOptions'>
-        <span>Created</span>
-        <span>Saved</span>
+        <span
+          onClick={() => setType('created')}
+          className={type === 'created' ? 'active' : ''}
+        >
+          Created
+        </span>
+        <span
+          onClick={() => setType('saved')}
+          className={type === 'saved' ? 'active' : ''}
+        >
+          Saved
+        </span>
       </div>
     </div>
   );
