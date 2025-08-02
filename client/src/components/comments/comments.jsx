@@ -1,6 +1,7 @@
 import './comments.css';
 import IKImage from './../image/image';
 import { useState } from 'react';
+import EmojiPicker from 'emoji-picker-react'
 
 const Comments = () => {
   const [open, setOpen] = useState(false);
@@ -54,7 +55,9 @@ const Comments = () => {
         <div className='emoji'>
           <div onClick={() => setOpen((prev) => !prev)}>😅</div>
           {open && (
-            <EmojiPicker className='emojiPicker' />
+            <div className='emojiPicker'>
+              <EmojiPicker />
+            </div>
           )}
         </div>
       </form>
