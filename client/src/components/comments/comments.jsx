@@ -1,7 +1,9 @@
 import './comments.css';
 import IKImage from './../image/image';
+import { useState } from 'react';
 
 const Comments = () => {
+  const [open, setOpen] = useState(false);
   return (
     <div className='comments'>
       <div className='commentList'>
@@ -50,7 +52,10 @@ const Comments = () => {
       <form className='commentForm'>
         <input type='text' placeholder='Add a comment' />
         <div className='emoji'>
-          <div>😅</div>
+          <div onClick={() => setOpen((prev) => !prev)}>😅</div>
+          {open && (
+            <EmojiPicker className='emojiPicker' />
+          )}
         </div>
       </form>
     </div>
