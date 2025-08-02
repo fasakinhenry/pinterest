@@ -1,5 +1,5 @@
 import IKImage from '../image/image';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import './leftBar.css';
 
 const LeftBar = () => {
