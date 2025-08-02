@@ -1,6 +1,8 @@
 import './profilePage.css';
 import IKImage from './../../components/image/image';
 import { useState } from 'react';
+import Gallery from './../../components/gallery/gallery';
+import Collections from '../../components/collections/collections';
 
 const ProfilePage = () => {
   const [type, setType] = useState('saved');
@@ -37,6 +39,7 @@ const ProfilePage = () => {
           Saved
         </span>
       </div>
+      {type === 'created' ? <Gallery /> : <Collections />}
     </div>
   );
 };
