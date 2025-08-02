@@ -1,2 +1,6 @@
 .comments {
+    flex: 1;
+    display: inline;
+    flex-direction: column;
+    gap: 16px;
 }
