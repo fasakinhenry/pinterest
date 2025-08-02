@@ -4,7 +4,12 @@ import IKImage from './../../components/image/image';
 const ProfilePage = () => {
   return (
     <div className='profilePage'>
-      <IKImage path='general/noAvatar.png' />
+      <IKImage
+        className='profileImg'
+        w={100}
+        h={100}
+        path='general/noAvatar.png'
+      />
       <h1 className='profileName'>John Doe</h1>
       <span className='profileUsername'>@johndoe</span>
       <div className='followCounts'>10 followers . 20 following</div>
