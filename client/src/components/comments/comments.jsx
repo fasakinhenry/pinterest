@@ -47,9 +47,9 @@ const Comments = () => {
           </div>
         </div>
       </div>
-      <form className="commentForm">
-        <input type="text" placeholder='Add a comment' />
-        <div className="emoji">
+      <form className='commentForm'>
+        <input type='text' placeholder='Add a comment' />
+        <div className='emoji'>
           <div>😅</div>
         </div>
       </form>
