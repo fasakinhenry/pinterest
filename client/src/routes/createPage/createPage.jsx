@@ -12,6 +12,7 @@ const CreatePage = () => {
         <form className='upload'>
           <div className='uploadTitle'>
             <IKImage path='/general/upload.svg' alt='upload' />
+            <span>Choose a file or drag and drop it here</span>
           </div>
           <div className='uploadInfo'>
             We recommend using high quality .jpg files less than 20 MB or .mp4
@@ -21,7 +22,8 @@ const CreatePage = () => {
         <form className='createForm'>
           <div className='createFormItem'>
             <label htmlFor='description'>Description</label>
-            <input
+            <textarea
+              rows={6}
               type='text'
               placeholder='Add a detailed description'
               id='description'
