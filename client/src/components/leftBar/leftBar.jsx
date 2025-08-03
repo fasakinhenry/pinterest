@@ -12,7 +12,7 @@ const LeftBar = () => {
         <Link to='/' className='menuIcon'>
           <IKImage path='/general/home.svg' alt='home' />
         </Link>
-        <Link to='/' className='menuIcon'>
+        <Link to='/create' className='menuIcon'>
           <IKImage path='/general/create.svg' alt='create' />
         </Link>
         <Link to='/' className='menuIcon'>
