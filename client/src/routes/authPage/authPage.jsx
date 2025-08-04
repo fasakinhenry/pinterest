@@ -9,7 +9,7 @@ const AuthPage = () => {
   return (
     <div className='authPage'>
       <div className='authContainer'>
-        <IKImage path='/general/logo.png' alt='logo' />
+        <IKImage path='/general/logo.png' w={36} h={36} alt='logo' />
         <h1>{isRegister ? 'Create an Account' : 'Login to your account'}</h1>
         {isRegister ? (
           <form key="register">
