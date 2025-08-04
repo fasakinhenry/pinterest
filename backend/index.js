@@ -1,10 +1,9 @@
 import express from 'express';
+import userRouter from "./routes/user.route.js"
 
 const app = express();
 
-app.use('/test', (req, res) => {
-  return res.json('Hello from backend API');
-});
+app.use('/users', userRouter);
 
 const PORT = process.env.PORT || 3000;
 
