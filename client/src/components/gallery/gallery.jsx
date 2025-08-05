@@ -1,5 +1,6 @@
 import GalleryItem from '../galleryItem/galleryItem';
 import './gallery.css';
+import { useQuery } from '@tanstack/react-query';
 
 // TEMPORARY
 const items = [
@@ -168,6 +169,7 @@ const items = [
 ];
 
 const Gallery = () => {
+  const query = useQuery({ queryKey: ['pins'], queryFn: getTodos });
   return (
     <div className='gallery'>
       {items.map((item) => (
