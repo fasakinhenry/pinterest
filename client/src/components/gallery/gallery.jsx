@@ -189,11 +189,13 @@ const Gallery = () => {
 
   console.log(data);
 
+  const allPins = data.pages.flatMap((page) => page.pins) || [];
+
   return (
     <div className='gallery'>
-      {/* {data?.map((item) => (
+      {allPins.map((item) => (
         <GalleryItem key={item._id} item={item} />
-      ))} */}
+      ))}
     </div>
   );
 };
