@@ -11,7 +11,6 @@ router.post('/create', async (req, res) => {
     userName: userInformation.userName,
     email: userInformation.email,
     hashedPassword: userInformation.hashedPassword,
-    img: userInformation.img,
   });
   return res.json(userInformation);
 });
