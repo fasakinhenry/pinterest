@@ -4,6 +4,7 @@ import pinRouter from './routes/pin.route.js';
 import boardRouter from './routes/board.route.js';
 import commentRouter from './routes/comment.route.js';
 import connectDB from './utils/connectDB.js';
+import cors from 'cors';
 
 const app = express();
 
