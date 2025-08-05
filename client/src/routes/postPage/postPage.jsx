@@ -1,10 +1,19 @@
 import './postPage.css';
 import IKImage from './../../components/image/image';
 import PostInteractions from './../../components/postInteractions/postInteractions';
-import { Link } from 'react-router';
+import { Link, useParams } from 'react-router';
 import Comments from '../../components/comments/comments';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 
 const PostPage = () => {
+
+  const { id } = useParams();
+
+  const [isPending, error, data] = useQuery({
+    queryKey: ['pin', id],
+    queryFn: axios.get(`${import.meta.env.VITE_API_ENDPOINT}/pins/${id}`).then(res => res.data),
+  })
   return (
     <div className='postPage'>
       <svg
