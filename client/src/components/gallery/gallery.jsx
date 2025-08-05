@@ -1,6 +1,7 @@
 import GalleryItem from '../galleryItem/galleryItem';
 import './gallery.css';
 import { useInfiniteQuery } from '@tanstack/react-query';
+import InfiniteScroll from 'react-infinite-scroll-component';
 import axios from 'axios';
 
 // TEMPORARY
@@ -192,11 +193,19 @@ const Gallery = () => {
   const allPins = data.pages.flatMap((page) => page.pins) || [];
 
   return (
-    <div className='gallery'>
-      {allPins.map((item) => (
-        <GalleryItem key={item._id} item={item} />
-      ))}
-    </div>
+    <InfiniteScroll
+      dataLength={allPins.length}
+      next={fetchNextPage}
+      hasMore={!!hasNextPage}
+      loader={<h4>Loading more pins...</h4>}
+      endMessage={<h3 style={{ textAlign: 'center' }}>All posts loaded</h3>}
+    >
+      <div className='gallery'>
+        {allPins.map((item) => (
+          <GalleryItem key={item._id} item={item} />
+        ))}
+      </div>
+    </InfiniteScroll>
   );
 };
 
