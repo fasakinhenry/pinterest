@@ -6,6 +6,7 @@
     "dev": "node --watch --env-file=.env index.js"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.84.1",
     "bcryptjs": "^3.0.2",
     "express": "^5.1.0",
     "mongoose": "^8.17.0"
