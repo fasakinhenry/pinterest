@@ -2,8 +2,15 @@ import Pin from '../models/pin.model.js';
 
 export const getPins = async (req, res) => {
   const pageNumber = Number(req.query.cursor) || 0;
+  const search = req.query.search;
   const LIMIT = 21;
-  const pins = await Pin.find()
+  const pins = await Pin.find({
+    $or: [
+      { title: { $regex: search, $options: 'i' } },
+      {tags: {$in: [search]}},
+      { description: { $regex: search, $options: 'i' }},
+    ],
+  })
     .limit(LIMIT)
     .skip(pageNumber * LIMIT);
 
