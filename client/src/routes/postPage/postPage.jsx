@@ -4,7 +4,7 @@ import PostInteractions from './../../components/postInteractions/postInteractio
 import { Link, useParams } from 'react-router';
 import Comments from '../../components/comments/comments';
 import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
+import apiRequest from '../../utils/apiRequest';
 
 const PostPage = () => {
 
@@ -12,8 +12,14 @@ const PostPage = () => {
 
   const [isPending, error, data] = useQuery({
     queryKey: ['pin', id],
-    queryFn: axios.get(`${import.meta.env.VITE_API_ENDPOINT}/pins/${id}`).then(res => res.data),
+    queryFn: apiRequest.get(`/pins/${id}`).then(res => res.data),
   })
+
+  if (isPending) return 'Loading...';
+  if (error) return 'An error has occured: ' + error.message;
+
+  if (!data) return 'Pin not found!';
+
   return (
     <div className='postPage'>
       <svg
@@ -26,13 +32,13 @@ const PostPage = () => {
       </svg>
       <div className='postContainer'>
         <div className='postImg'>
-          <IKImage path='/pins/pin1.jpeg' alt='Post Image' w={736} />
+          <IKImage path={data.media} alt='Post Image' w={736} />
         </div>
         <div className='postDetails'>
           <PostInteractions />
-          <Link to='/john' className='postUser'>
-            <IKImage path='/general/noAvatar.png' alt='User Avatar' />
-            <span>John Doe</span>
+          <Link to={`/${data.user.username}`} className='postUser'>
+            <IKImage path={data.user.img || '/general/noAvatar.png'} alt='User Avatar' />
+            <span>{data.user.displayName}</span>
           </Link>
           <Comments />
         </div>
