@@ -7,13 +7,12 @@ import { useQuery } from '@tanstack/react-query';
 import apiRequest from '../../utils/apiRequest';
 
 const PostPage = () => {
-
   const { id } = useParams();
 
-  const [isPending, error, data] = useQuery({
+  const { isPending, error, data } = useQuery({
     queryKey: ['pin', id],
-    queryFn: apiRequest.get(`/pins/${id}`).then(res => res.data),
-  })
+    queryFn: () => apiRequest.get(`/pins/${id}`).then((res) => res.data),
+  });
 
   if (isPending) return 'Loading...';
   if (error) return 'An error has occured: ' + error.message;
@@ -37,7 +36,10 @@ const PostPage = () => {
         <div className='postDetails'>
           <PostInteractions />
           <Link to={`/${data.user.username}`} className='postUser'>
-            <IKImage path={data.user.img || '/general/noAvatar.png'} alt='User Avatar' />
+            <IKImage
+              path={data.user.img || '/general/noAvatar.png'}
+              alt='User Avatar'
+            />
             <span>{data.user.displayName}</span>
           </Link>
           <Comments />
