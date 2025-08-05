@@ -181,16 +181,13 @@ const Gallery = () => {
   });
 
   if (error) return "An Error has occured" + error.message;
-  if (pending) return "Loading..."
-
-  console.log(data);
-
+  if (isPending) return "Loading..."
 
   return (
     <div className='gallery'>
-      {/* {data?.map((item) => (
-        <GalleryItem key={item.id} item={item} />
-      ))} */}
+      {data?.map((item) => (
+        <GalleryItem key={item._id} item={item} />
+      ))}
     </div>
   );
 };
