@@ -18,30 +18,16 @@ const Boards = ({ userId }) => {
 
   return (
     <div className='boards'>
-      {/* Collection */}
-      <div className='collection'>
-        <IKImage path='/pins/pin1.jpeg' alt='' />
-        <div className='collectionInfo'>
-          <h1>Minimalist Bedroom</h1>
-          <span>12 Pins . 1w</span>
+      {/* Board */}
+      {data?.map((board) => (
+        <div className='board' key={board._id}>
+          <IKImage path={board.firstPin.media} alt='' />
+          <div className='boardInfo'>
+            <h1>{board.title}</h1>
+            <span>{board.pinCount} Pins . {board.createdAt}</span>
+          </div>
         </div>
-      </div>
-      {/* Collection */}
-      <div className='collection'>
-        <IKImage path='/pins/pin1.jpeg' alt='' />
-        <div className='collectionInfo'>
-          <h1>Minimalist Bedroom</h1>
-          <span>12 Pins . 1w</span>
-        </div>
-      </div>
-      {/* Collection */}
-      <div className='collection'>
-        <IKImage path='/pins/pin1.jpeg' alt='' />
-        <div className='collectionInfo'>
-          <h1>Minimalist Bedroom</h1>
-          <span>12 Pins . 1w</span>
-        </div>
-      </div>
+      ))}
     </div>
   );
 };
