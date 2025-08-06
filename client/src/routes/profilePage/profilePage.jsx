@@ -5,6 +5,7 @@ import Gallery from './../../components/gallery/gallery';
 import Collections from '../../components/collections/collections';
 import { useQuery } from '@tanstack/react-query';
 import apiRequest from '../../utils/apiRequest';
+import { useParams } from 'react-router';
 
 const ProfilePage = () => {
   const [type, setType] = useState('saved');
@@ -27,11 +28,11 @@ const ProfilePage = () => {
         className='profileImg'
         w={100}
         h={100}
-        path='general/noAvatar.png'
+        path={data.img || 'general/noAvatar.png'}
       />
-      <h1 className='profileName'>John Doe</h1>
-      <span className='profileUsername'>@johndoe</span>
-      <div className='followCounts'>10 followers . 20 following</div>
+      <h1 className='profileName'>{data.name}</h1>
+      <span className='profileUsername'>@{data.username}</span>
+      <div className='followCounts'>{data.followers} followers . {data.following} following</div>
       <div className='profileInteractions'>
         <IKImage path='general/share.svg' alt='Share Icon' />
         <div className='profileButtons'>
@@ -54,7 +55,7 @@ const ProfilePage = () => {
           Saved
         </span>
       </div>
-      {type === 'created' ? <Gallery /> : <Collections />}
+      {type === 'created' ? <Gallery userId={data._id} /> : <Collections />}
     </div>
   );
 };
