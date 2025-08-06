@@ -16,8 +16,6 @@ const Boards = ({ userId }) => {
 
   if (!data) return 'Board not found!';
 
-  console.log(data);
-
   return (
     <div className='boards'>
       {/* Board */}
