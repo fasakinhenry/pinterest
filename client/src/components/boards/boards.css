@@ -12,7 +12,6 @@
 
 .board img {
   width: 100%;
-  height: 100%;
   object-fit: cover;
   border-radius: 16px;
 }
@@ -29,6 +28,25 @@
 }
 
 .boardInfo span {
+  display: inline-block;
   font-size: 13px;
   color: gray;
+}
+
+@media (max-width: 768px) {
+  .boards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .boards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 360px) {
+  .boards {
+    grid-template-columns: 1fr;
+  }
 }

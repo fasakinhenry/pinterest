@@ -2,6 +2,8 @@ import './boards.css';
 import IKImage from '../image/image';
 import apiRequest from '../../utils/apiRequest';
 import { useQuery } from '@tanstack/react-query';
+import { format } from 'timeago.js';
+import { Link } from 'react-router';
 
 const Boards = ({ userId }) => {
   const { isPending, error, data } = useQuery({
@@ -20,13 +22,19 @@ const Boards = ({ userId }) => {
     <div className='boards'>
       {/* Board */}
       {data?.map((board) => (
-        <div className='board' key={board._id}>
+        <Link
+          to={`/search?boardId=${board._id}`}
+          className='board'
+          key={board._id}
+        >
           <IKImage path={board.firstPin.media} alt='' />
           <div className='boardInfo'>
             <h1>{board.title}</h1>
-            <span>{board.pinCount} Pins . {board.createdAt}</span>
+            <span>
+              {board.pinCount} Pins . {format(board.createdAt)}
+            </span>
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   );
