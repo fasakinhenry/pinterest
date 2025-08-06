@@ -5,7 +5,8 @@ import './searchPage.css';
 const SearchPage = () => {
   const [searchParams] = useSearchParams();
   const search = searchParams.get('search');
-  return <Gallery search={search} />;
+  const boardId = searchParams.get('boardId');
+  return <Gallery search={search} boardId={boardId} />;
 };
 
 export default SearchPage;
