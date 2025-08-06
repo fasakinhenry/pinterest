@@ -4,6 +4,7 @@ import { useState } from 'react';
 import EmojiPicker from 'emoji-picker-react';
 import { useQuery } from '@tanstack/react-query';
 import apiRequest from '../../utils/apiRequest';
+import Comment from './Comment';
 
 const Comments = ({ id }) => {
   const [open, setOpen] = useState(false);
@@ -27,16 +28,7 @@ const Comments = ({ id }) => {
           {data.length === 0 ? 'No comments' : data.length + ' Comments'}
         </span>
         {data?.map((comment) => (
-          <div className='comment'>
-            <IKImage path='/general/noAvatar.png' alt='avater' />
-            <div className='commentContent'>
-              <span className='commentUsername'>John Doe</span>
-              <p className='commentText'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </p>
-              <span className='commentTime'>1hr</span>
-            </div>
-          </div>
+          <Comment key={comment._id} comment={comment} />
         ))}
       </div>
       <form className='commentForm'>
