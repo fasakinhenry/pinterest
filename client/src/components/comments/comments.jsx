@@ -26,46 +26,18 @@ const Comments = ({ id }) => {
         <span className='commentCount'>
           {data.length === 0 ? 'No comments' : data.length + ' Comments'}
         </span>
-        <div className='comment'>
-          <IKImage path='/general/noAvatar.png' alt='avater' />
-          <div className='commentContent'>
-            <span className='commentUsername'>John Doe</span>
-            <p className='commentText'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </p>
-            <span className='commentTime'>1hr</span>
+        {data?.map((comment) => (
+          <div className='comment'>
+            <IKImage path='/general/noAvatar.png' alt='avater' />
+            <div className='commentContent'>
+              <span className='commentUsername'>John Doe</span>
+              <p className='commentText'>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </p>
+              <span className='commentTime'>1hr</span>
+            </div>
           </div>
-        </div>
-        <div className='comment'>
-          <IKImage path='/general/noAvatar.png' alt='avater' />
-          <div className='commentContent'>
-            <span className='commentUsername'>John Doe</span>
-            <p className='commentText'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </p>
-            <span className='commentTime'>1hr</span>
-          </div>
-        </div>
-        <div className='comment'>
-          <IKImage path='/general/noAvatar.png' alt='avater' />
-          <div className='commentContent'>
-            <span className='commentUsername'>John Doe</span>
-            <p className='commentText'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </p>
-            <span className='commentTime'>1hr</span>
-          </div>
-        </div>
-        <div className='comment'>
-          <IKImage path='/general/noAvatar.png' alt='avater' />
-          <div className='commentContent'>
-            <span className='commentUsername'>John Doe</span>
-            <p className='commentText'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </p>
-            <span className='commentTime'>1hr</span>
-          </div>
-        </div>
+        ))}
       </div>
       <form className='commentForm'>
         <input type='text' placeholder='Add a comment' />
