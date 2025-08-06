@@ -18,10 +18,14 @@ const Comments = ({ id }) => {
 
   if (!data) return 'Board not found!';
 
+  console.log(data);
+
   return (
     <div className='comments'>
       <div className='commentList'>
-        <span className='commentCount'>5 comments</span>
+        <span className='commentCount'>
+          {data.length === 0 ? 'No comments' : data.length + ' Comments'}
+        </span>
         <div className='comment'>
           <IKImage path='/general/noAvatar.png' alt='avater' />
           <div className='commentContent'>
