@@ -2,10 +2,13 @@ import './authPage.css';
 import IKImage from './../../components/image/image';
 import { useState } from 'react';
 import apiRequest from './../../utils/apiRequest';
+import { useNavigate } from 'react-router';
 
 const AuthPage = () => {
   const [isRegister, setIsRegister] = useState(false);
   const [error, setError] = useState('');
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,7 +21,7 @@ const AuthPage = () => {
         data
       );
 
-      console.log(res.data);
+      navigate('/');
     } catch (err) {
       setError(err.response?.data?.message || 'An error occurred');
     }
