@@ -13,7 +13,12 @@ const AuthPage = () => {
     const data = Object.fromEntries(formData);
 
     try {
-      const res = await apiRequest.post(isRegister ? '/users/auth/register' : '/users/auth/login', data);
+      const res = await apiRequest.post(
+        `/users/auth/${isRegister ? 'register' : 'login'}`,
+        data
+      );
+
+      console.log(res.data);
     } catch (err) {
       setError(err.response?.data?.message || 'An error occurred');
     }
@@ -30,30 +35,30 @@ const AuthPage = () => {
               <label htmlFor='username'>Username</label>
               <input
                 type='username'
-                name='username'
-                id='username'
                 placeholder='Username'
                 required
+                name='username'
+                id='username'
               />
             </div>
             <div className='formGroup'>
               <label htmlFor='displayName'>Name</label>
               <input
                 type='displayName'
-                name='displayName'
-                id='displayName'
                 placeholder='Name'
                 required
+                name='displayName'
+                id='displayName'
               />
             </div>
             <div className='formGroup'>
               <label htmlFor='email'>Email</label>
               <input
                 type='email'
-                name='email'
-                id='email'
                 placeholder='Email'
                 required
+                name='email'
+                id='email'
               />
             </div>
             <div className='formGroup'>
@@ -73,7 +78,7 @@ const AuthPage = () => {
             {error && <p>{error}</p>}
           </form>
         ) : (
-          <form key='loginForm'>
+          <form key='loginForm' onSubmit={handleSubmit}>
             <div className='formGroup'>
               <label htmlFor='password'>Email</label>
               <input
