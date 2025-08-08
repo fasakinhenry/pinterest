@@ -31,17 +31,7 @@ const Comments = ({ id }) => {
           <Comment key={comment._id} comment={comment} />
         ))}
       </div>
-      <form className='commentForm'>
-        <input type='text' placeholder='Add a comment' />
-        <div className='emoji'>
-          <div onClick={() => setOpen((prev) => !prev)}>😅</div>
-          {open && (
-            <div className='emojiPicker'>
-              <EmojiPicker />
-            </div>
-          )}
-        </div>
-      </form>
+      
     </div>
   );
 };
