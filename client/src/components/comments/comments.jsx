@@ -5,6 +5,7 @@ import EmojiPicker from 'emoji-picker-react';
 import { useQuery } from '@tanstack/react-query';
 import apiRequest from '../../utils/apiRequest';
 import Comment from './Comment';
+import CommentForm from './commentForm';
 
 const Comments = ({ id }) => {
   const [open, setOpen] = useState(false);
@@ -31,7 +32,7 @@ const Comments = ({ id }) => {
           <Comment key={comment._id} comment={comment} />
         ))}
       </div>
-      
+      <CommentForm />
     </div>
   );
 };
