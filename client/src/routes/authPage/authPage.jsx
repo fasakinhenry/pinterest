@@ -30,7 +30,7 @@ const AuthPage = () => {
         <IKImage path='/general/logo.png' w={36} h={36} alt='logo' />
         <h1>{isRegister ? 'Create an Account' : 'Login to your account'}</h1>
         {isRegister ? (
-          <form key='register' onClick={handleSubmit}>
+          <form key='register' onSubmit={handleSubmit}>
             <div className='formGroup'>
               <label htmlFor='username'>Username</label>
               <input
