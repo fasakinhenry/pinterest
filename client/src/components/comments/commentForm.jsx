@@ -1,5 +1,6 @@
 import './commentForm.css';
 import EmojiPicker from 'emoji-picker-react';
+import { useState } from 'react';
 
 const CommentForm = () => {
   const [open, setOpen] = useState(false);
