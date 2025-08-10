@@ -10,13 +10,14 @@ const UserButton = () => {
 
   const navigate = useNavigate();
 
-  const { currentUser } = useAuthStore();
+  const { currentUser, removeCurrentUser } = useAuthStore();
 
   console.log(currentUser)
 
   const handleLogout = async () => {
     try {
       await apiRequest.post('/users/auth/logout', {});
+      removeCurrentUser();
       navigate('/auth');
     } catch (err) {
       console.log(err);
@@ -24,13 +25,13 @@ const UserButton = () => {
   };
   return currentUser ? (
     <div className='userButton'>
-      <IKImage path='/general/noAvatar.png' alt='avatar' />
+      <IKImage path={currentUser.img || '/general/noAvatar.png'} alt='avatar' />
       <div onClick={() => setOpen((prev) => !prev)}>
         <IKImage path='/general/arrow.svg' alt='arrow' className='arrow' />
       </div>
       {open && (
         <div className='userOptions'>
-          <div className='userOption'>Profile</div>
+          <Link to={`/profile/${currentUser.username}`} className='userOption'>Profile</Link>
           <div className='userOption'>Settings</div>
           <div className='userOption' onClick={handleLogout}>
             Logout
