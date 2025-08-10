@@ -2,15 +2,17 @@ import { useState } from 'react';
 import './userButton.css';
 import IKImage from '../image/image';
 import apiRequest from './../../utils/apiRequest';
-import { useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router';
+import useAuthStore from '../../utils/authStore';
 
 const UserButton = () => {
   const [open, setOpen] = useState(false);
 
   const navigate = useNavigate();
 
-  // TEMP
-  const currentUser = true;
+  const { currentUser } = useAuthStore();
+
+  console.log(currentUser)
 
   const handleLogout = async () => {
     try {
@@ -37,9 +39,9 @@ const UserButton = () => {
       )}
     </div>
   ) : (
-    <a href='/' className='loginLink'>
+    <Link to='/auth' className='loginLink'>
       Login / Sign up
-    </a>
+    </Link >
   );
 };
 

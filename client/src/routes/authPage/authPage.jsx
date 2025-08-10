@@ -3,6 +3,7 @@ import IKImage from './../../components/image/image';
 import { useState } from 'react';
 import apiRequest from './../../utils/apiRequest';
 import { useNavigate } from 'react-router';
+import useAuthStore from '../../utils/authStore';
 
 const AuthPage = () => {
   const [isRegister, setIsRegister] = useState(false);
