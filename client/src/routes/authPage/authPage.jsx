@@ -10,6 +10,8 @@ const AuthPage = () => {
 
   const navigate = useNavigate();
 
+  const { setCurrentUser } = useAuthStore();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -20,6 +22,8 @@ const AuthPage = () => {
         `/users/auth/${isRegister ? 'register' : 'login'}`,
         data
       );
+
+      setCurrentUser(res.data);
 
       navigate('/');
     } catch (err) {
