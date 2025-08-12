@@ -8,6 +8,6 @@ import { verifyToken } from '../middleware/verifyToken.js';
 const router = express.Router();
 
 router.get('/:postId', getPostComments);
-router.post('/', addComment);
+router.post('/', verifyToken, addComment);
 
 export default router;
