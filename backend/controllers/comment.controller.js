@@ -20,7 +20,12 @@ export const addComment = async (req, res) => {
   const { description, pin } = req.body;
 
   const userId = req.userId;
-
-  const comment = await Comment.create({ description, pin, user: userId });
-  res.status(201).json(comment);
+  // use try catch to catch errors
+  try {
+    const comment = await Comment.create({ description, pin, user: userId });
+    res.status(201).json(comment);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Server error' });
+  }
 };
