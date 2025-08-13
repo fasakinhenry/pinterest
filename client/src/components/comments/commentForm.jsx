@@ -14,11 +14,13 @@ const CommentForm = ({ id }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const res = await apiRequest.post('/comments', {
       description: desc,
       pin: id,
     });
   };
+  
   return (
     <form className='commentForm' onSubmit={handleSubmit}>
       <input
